@@ -2,6 +2,8 @@
 
 Telegram Mini App + web interface for **simulation signals** reconstructed from game mechanics/HAR analysis. The app intentionally does **not** claim to predict a third-party casino RNG or guarantee a betting result.
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FDaniel23412%2Fbots&project-name=bots&repository-name=bots)
+
 ## Stage 1 implemented
 - Next.js App Router + TypeScript + Tailwind
 - Telegram Mini App bridge
@@ -40,15 +42,28 @@ npm run typecheck
 npm run build
 ```
 
+## Vercel
+The production app can be deployed directly from this repository with the **Deploy with Vercel** button above.
+
+The production Telegram webhook route does not require `BOT_TOKEN` or `NEXT_PUBLIC_APP_URL` in Vercel. It derives the Mini App origin from the incoming webhook request and answers Telegram directly in the webhook response.
+
+Optional production variables:
+- `TELEGRAM_WEBHOOK_SECRET`
+- `DATABASE_URL`
+- `ADMIN_SECRET`
+- `SIGNAL_COOLDOWN_SECONDS`
+
 ## Telegram
-1. Copy `.env.example` to `.env.local`.
-2. Set `BOT_TOKEN` from BotFather.
-3. Set `NEXT_PUBLIC_APP_URL` to the HTTPS Mini App URL.
-4. Optionally set `TELEGRAM_WEBHOOK_SECRET`.
-5. Register webhook:
+For local/manual webhook registration, set:
+- `BOT_TOKEN`
+- `NEXT_PUBLIC_APP_URL`
+
+Then run:
 ```bash
 npm run telegram:set-webhook
 ```
+
+In production the bot token is only needed once to register the final Vercel webhook URL with Telegram; it does not need to be committed or stored in the Vercel project.
 
 ## Architecture
 ```text
