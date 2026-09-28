@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model SignalLog {
+  id            String   @id
+  game          String
+  risk          String
+  options       Json
+  result        Json
+  parserVersion String   @default("har-v1")
+  appVersion    String   @default("0.1.0")
+  createdAt     DateTime @default(now())
+
+  @@index([game, createdAt])
+}
+
+model AppConfig {
+  key       String   @id
+  value     Json
+  updatedAt DateTime @updatedAt
+}

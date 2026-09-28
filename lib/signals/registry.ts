@@ -33,7 +33,15 @@ export const games: Record<string, GameDefinition> = {
 };
 
 export function publicGames() {
-  return Object.values(games).map(({ provider: _provider, ...game }) => game);
+  return Object.values(games).map((game) => ({
+    id: game.id,
+    title: game.title,
+    icon: game.icon,
+    description: game.description,
+    category: game.category,
+    enabled: game.enabled,
+    status: game.status,
+  }));
 }
 
 export function getGame(id: string) {
