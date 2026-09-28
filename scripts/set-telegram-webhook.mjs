@@ -1,0 +1,10 @@
+const token = process.env.BOT_TOKEN;
+const appUrl = process.env.NEXT_PUBLIC_APP_URL;
+const secret = process.env.TELEGRAM_WEBHOOK_SECRET;
+if (!token || !appUrl) throw new Error("BOT_TOKEN and NEXT_PUBLIC_APP_URL are required");
+const url = `https://api.telegram.org/bot${token}/setWebhook`;
+const body = { url: `${appUrl.replace(/\/$/, "")}/api/telegram/webhook`, allowed_updates: ["message"] };
+if (secret) body.secret_token = secret;
+const response = await fetch(url, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
+console.log(await response.text());
+if (!response.ok) process.exit(1);
