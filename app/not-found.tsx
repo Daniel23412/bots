@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function NotFound(){return <main className="grid min-h-dvh place-items-center px-6 text-center"><div><div className="text-5xl">🛰️</div><h1 className="mt-4 text-3xl font-black">Игра пока недоступна</h1><p className="mt-2 text-sm text-white/40">Она подключится на следующем этапе.</p><Link href="/" className="mt-5 inline-block rounded-2xl bg-emerald-400 px-5 py-3 font-black text-[#04110a]">НА ГЛАВНУЮ</Link></div></main>}
