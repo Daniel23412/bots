@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { ArrowIcon } from "./AppShell";
 import { SignalResult } from "./SignalResult";
 import type { GameSignal } from "@/lib/signals/types";
 
@@ -61,7 +62,7 @@ export function SignalClient({ game }: { game: string }) {
     <div className="game-controls">
       <div className="result-line" role="status" aria-live="polite">
         <span className={`status-dot ${signal ? "ready" : ""}`} />
-        {loading ? "Генерация сигнала" : signal ? isMines ? `Отмечено клеток: ${(signal.data as { recommendedCount: number }).recommendedCount}` : `Остановка после ${(signal.data as { stopAfter: number }).stopAfter} этажа` : "Выберите настройки и получите сигнал"}
+        {loading ? "Генерация сигнала" : signal ? isMines ? `Отмечено ${(signal.data as { recommendedCount: number }).recommendedCount} клеток` : `Остановка после ${(signal.data as { stopAfter: number }).stopAfter} этажа` : "Выберите настройки и получите сигнал"}
       </div>
       <fieldset disabled={loading} className="game-settings">
         <legend>{isMines ? "Количество мин" : "Режим риска"}</legend>
@@ -71,11 +72,10 @@ export function SignalClient({ game }: { game: string }) {
       </fieldset>
       {error && <p className="signal-error" role="alert">{error}</p>}
       <button className="generate-button" type="button" onClick={generate} disabled={loading || cooldown > 0}>
-        {!isMines && <img className="button-bolt bolt-left" src="/games/tower-rush/bolt.webp" alt="" />}
-        <span>{loading ? "Создаём сигнал…" : cooldown > 0 ? `Новый сигнал через ${cooldown} с` : signal ? "Новый сигнал" : "Получить сигнал"}</span>
-        {!isMines && <img className="button-bolt bolt-right" src="/games/tower-rush/bolt.webp" alt="" />}
+        <span>{loading ? "Создаём сигнал…" : cooldown > 0 ? `Новый сигнал через ${cooldown} с` : "Получить сигнал"}</span>
+        <ArrowIcon className="generate-arrow" />
       </button>
-      <p className="simulation-note">Демонстрационная симуляция. Не предсказывает результат игры.</p>
+      <p className="simulation-note">Симуляция. Не предсказывает результат игры.</p>
     </div>
   </div>;
 }

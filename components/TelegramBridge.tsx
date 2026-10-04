@@ -22,8 +22,8 @@ export function TelegramBridge() {
     if (!webApp) return;
     webApp.ready();
     webApp.expand();
-    webApp.setHeaderColor?.("#0a0f1e");
-    webApp.setBackgroundColor?.("#0a0f1e");
+    webApp.setHeaderColor?.("#080d25");
+    webApp.setBackgroundColor?.("#080d25");
     webApp.disableVerticalSwipes?.();
   }, []);
   return null;

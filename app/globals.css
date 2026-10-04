@@ -1,25 +1,252 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @font-face{font-family:Inter;src:url('/games/mines/inter-latin.woff2') format('woff2');font-style:normal;font-weight:100 900;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:Inter;src:url('/games/mines/inter-cyrillic.woff2') format('woff2');font-style:normal;font-weight:100 900;font-display:swap;unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
 @font-face{font-family:Rubik;src:url('/games/tower-rush/rubik-regular.woff') format('woff');font-weight:400;font-display:swap}
 @font-face{font-family:Rubik;src:url('/games/tower-rush/rubik-bold.woff') format('woff');font-weight:700 900;font-display:swap}
-:root{color-scheme:dark;--muted:#97a3cb;--surface:#121727;--line:#ffffff12}
-*{box-sizing:border-box}html,body{min-height:100%;background:#0a0f1e}body{margin:0;color:#f4f6ff;font-family:Inter,system-ui,-apple-system,sans-serif;background:radial-gradient(ellipse at 50% 0,#1a2741 0,transparent 55rem),#0a0f1e}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer}button:disabled{cursor:wait}button:focus-visible,a:focus-visible{outline:3px solid #71c9ff;outline-offset:4px}button,a{touch-action:manipulation}a{color:inherit;text-decoration:none}img,svg{display:block}button{border:0}.safe-bottom{min-height:100dvh;padding-bottom:max(18px,env(safe-area-inset-bottom))}.app-header{position:relative;z-index:20;border-bottom:1px solid var(--line);background:#0a0f1ee8;padding:env(safe-area-inset-top) 20px 0}.header-inner{max-width:1000px;margin:auto;min-height:72px;display:flex;justify-content:space-between;align-items:center;gap:12px}.header-brand,.brand-link{display:flex;align-items:center;gap:13px}.brand-link{font-size:15px;font-weight:400;letter-spacing:2px}.brand-link b{font-weight:800}.brand-mark{height:26px;display:flex;align-items:center;gap:3px}.brand-mark i{display:block;width:4px;border-radius:3px;background:#85b8ff;height:13px}.brand-mark i:nth-child(2){height:25px;background:#d6e7ff}.brand-mark i:nth-child(3){height:19px}.back-button{width:40px;height:44px;display:grid;place-items:center;border:1px solid var(--line);border-radius:12px}.back-button svg{width:22px;height:22px}.history-link{display:flex;align-items:center;gap:7px;min-height:44px;padding:0 12px;border-radius:12px;font-size:12px;color:#bdc6dd;background:#ffffff06}.history-link svg{width:18px;height:18px}.catalog-shell,.history-shell{max-width:1000px;margin:0 auto;padding:44px 24px 24px}.catalog-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:28px}.eyebrow{font-size:10px;letter-spacing:2px;color:#7f94ba;font-weight:700}.catalog-heading h1{font-size:32px;letter-spacing:-1px;line-height:1.2;font-weight:800;margin:9px 0 10px}.catalog-heading p{font-size:13px;color:#9aa8c5;line-height:1.7;margin:0}.demo-pill{display:flex;align-items:center;gap:7px;font-size:11px;padding:8px 11px;border:1px solid #a8bdd721;border-radius:30px;color:#b9c8e2}.demo-pill>span{width:5px;height:5px;background:#87a4c9;border-radius:50%}.games-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.game-card{min-width:0;overflow:hidden;border:1px solid #ffffff12;border-radius:22px;background:#131c2f;box-shadow:0 15px 45px #02071230;transition:transform .2s,border-color .2s}.game-card:hover{transform:translateY(-3px);border-color:#7186ad80}.card-art{height:290px;overflow:hidden;position:relative}.card-content{display:flex;justify-content:space-between;align-items:center;padding:22px;gap:8px;border-top:1px solid #ffffff0a}.card-category{font-size:9px;letter-spacing:1.3px;color:#80a8d6;font-weight:700}.card-content h2{font-size:25px;font-weight:800;letter-spacing:-.7px;margin:6px 0}.card-content p{font-size:11px;color:#94a4c2;margin:0}.card-arrow{font-size:23px;display:grid;place-items:center;flex-shrink:0;width:44px;height:44px;border:1px solid #ffffff19;border-radius:50%;color:#cde3ff}.card-tower-rush .card-category{color:#ebc673}.upcoming-section{margin-top:36px}.upcoming-section h2{font-size:14px;color:#b3bfd6;font-weight:600;margin-bottom:14px}.upcoming-list{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.upcoming-game{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid #ffffff09;border-radius:12px;padding:14px;font-size:11px;color:#8e9cb9;background:#ffffff02}.upcoming-game>span:last-child{font-size:9px;color:#65748f}.catalog-note{margin:30px auto 0;max-width:420px;text-align:center;font-size:11px;line-height:1.7;color:#8795b1}.play-shell{max-width:1060px;margin:auto;padding:28px 24px}.signal-game{overflow:hidden;border:1px solid #ffffff12;border-radius:24px;background:#121727;display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,1fr);box-shadow:0 25px 80px #02051060}.game-stage{position:relative;min-width:0;overflow:hidden}.game-controls{align-self:center;padding:28px}.result-line{display:flex;align-items:center;gap:8px;font-size:12px;line-height:1.5;min-height:40px;color:#aab7d6;padding-bottom:20px}.status-dot{height:6px;width:6px;flex-shrink:0;border-radius:50%;background:#657493}.status-dot.ready{background:#5bd78d;box-shadow:0 0 10px #5bd78d60}.game-settings{border:0;padding:0;margin:0 0 20px;min-width:0}.game-settings legend{font-size:12px;font-weight:600;color:#adb9d5;margin-bottom:12px}.option-group{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.four-options{grid-template-columns:repeat(4,minmax(0,1fr))}.option-group button{display:flex;align-items:center;justify-content:center;gap:7px;min-height:48px;padding:8px 5px;border-radius:11px;color:#a3b1d0;background:#21293f;box-shadow:inset 0 1px #ffffff07;font-size:12px;font-weight:700;transition:background .2s,color .2s}.option-group button img{width:20px;height:20px;object-fit:contain}.option-group button[aria-pressed=true]{background:#344f78;color:#e1edff;box-shadow:inset 0 0 0 1px #6b98cb70,0 2px 9px #070e2080}.generate-button{min-height:56px;width:100%;position:relative;border-radius:12px;background:linear-gradient(#20ee75,#0ac852);box-shadow:0 4px 0 #078d3d,0 8px 24px #0ed15e15;color:#063218;font-size:14px;font-weight:800;padding:12px 17px;transition:filter .2s,transform .2s}.generate-button:active:not(:disabled){transform:translateY(2px);box-shadow:0 2px 0 #078d3d}.generate-button:disabled{filter:saturate(.45);color:#133d2a}.simulation-note{font-size:10px;line-height:1.7;text-align:center;color:#8b9ab9;margin:19px auto 0;max-width:285px}.signal-error{padding:12px;border:1px solid #fd77794d;border-radius:9px;background:#e9526215;color:#ffaeb8;font-size:12px;margin:0 0 16px}.scene-loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:12px;background:#0b142365;backdrop-filter:blur(3px);font-size:13px;font-weight:600;z-index:10}.loading-spinner{width:22px;height:22px;border:2px solid #fff3;border-top-color:white;border-radius:50%;animation:spin .7s linear infinite}
-/* Original Cave Mines palette, vector tiles, crystal and animated torch assets. */
-.mines-scene{position:relative;overflow:hidden;min-height:530px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:68px 42px 50px;background:url('/games/mines/ground.webp') center bottom/auto 68px no-repeat,radial-gradient(ellipse at 50% 40%,#1b2540,#0a0f1e 80%)}.mines-scene-top{position:absolute;left:28px;right:28px;top:24px;display:flex;align-items:center;justify-content:space-between}.mines-wordmark{font-size:24px;font-weight:900;letter-spacing:4px;color:#edf4ff;text-shadow:0 3px 0 #35486a}.scene-label{font-size:8px;font-weight:700;letter-spacing:1px;color:#92a4c7;border:1px solid #ffffff18;border-radius:5px;padding:5px 7px}.mines-board{isolation:isolate;position:relative;z-index:2;width:100%;max-width:366px;aspect-ratio:1;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;padding:14px;border-radius:25px;background:#0d1222ba;box-shadow:0 -2px 12px #2a314566,0 4px 54px #2a314533,inset 0 0 22px #060a1666}.mine-cell{position:relative;aspect-ratio:1;min-width:0}.mine-tile{width:100%;height:100%;object-fit:contain}.mine-crystal{position:absolute;inset:5%;width:90%;height:90%;object-fit:contain;filter:drop-shadow(0 0 10px #44a2ff60);animation:crystal-reveal .7s var(--reveal-delay) both}.revealed .mine-tile{animation:tile-open .35s var(--reveal-delay) both}.mine-torch{position:absolute;z-index:1;pointer-events:none}.torch-left{width:43px;left:1%;top:30%;height:140px}.torch-right{width:53px;right:0;top:37%;height:100px}.mine-counters{display:flex;justify-content:center;gap:22px;z-index:2;margin-top:19px;font-size:11px;color:#899ac0}.mine-counters>span{display:flex;align-items:center;gap:6px}.mine-counters img{width:22px;height:22px;object-fit:contain}.mine-counters b{color:#e0e8fb;margin-left:2px;font-size:13px}.mines-scene.scene-preview{min-height:0;height:100%;padding:24px 50px;background-size:auto 48px}.scene-preview .mines-board{max-width:244px;padding:10px;gap:5px;border-radius:20px;transform:rotate(-7deg)}.scene-preview .mine-crystal,.scene-preview .mine-tile{animation:none}.scene-preview .revealed .mine-tile{opacity:.18}.scene-preview .mine-torch{opacity:.75}.scene-preview .torch-left{left:8%}.scene-preview .torch-right{right:6%}
-/* Tower Rush uses original mobile background, atlas frames and control textures. */
-.game-tower{font-family:Rubik,Inter,sans-serif;background:#183045}.game-tower .game-controls{background:linear-gradient(145deg,#253f53,#142839)}.tower-scene{position:relative;isolation:isolate;min-height:530px;overflow:hidden;background:#a2c1d5 url('/games/tower-rush/background-back.webp') center bottom/100% auto no-repeat}.tower-city{position:absolute;bottom:-65px;width:100%;max-width:none;z-index:-1}.tower-logo{position:absolute;left:18px;top:18px;width:150px;height:50px;object-fit:contain}.tower-demo{position:absolute;right:17px;top:29px;color:#314962;border-color:#304e6d38;background:#ffffff40}.tower-sun{position:absolute;width:190px;height:190px;top:35px;right:-55px;opacity:.75;z-index:-1}.tower-cloud{position:absolute;width:200px;opacity:.8;z-index:-1;animation:cloud-drift 12s ease-in-out infinite alternate}.cloud-one{left:-50px;top:130px}.cloud-two{right:-60px;top:240px;width:260px;animation-delay:-5s}.tower-crane{position:absolute;top:0;left:52%;width:15px;transform-origin:top;animation:crane-sway 4s ease-in-out infinite alternate}.tower-cable{width:3px;height:76px;margin:0 auto;background:repeating-linear-gradient(90deg,#2b3844 0 1px,#9a9c91 1px 2px)}.tower-crane svg{width:15px;height:32px}.tower-assembly{position:absolute;bottom:52px;left:50%;width:var(--floor-width);transform:translateX(-50%);height:calc(var(--floor-width)*1.59)}.tower-base{position:absolute;bottom:0;width:260%;max-width:none;left:-80%}.tower-floors{position:absolute;left:0;bottom:calc(var(--floor-width)*1.36);width:100%;display:flex;flex-direction:column-reverse;align-items:center}.tower-floor{width:100%;flex-shrink:0;position:relative;animation:floor-land .55s var(--reveal-delay) both;filter:drop-shadow(2px 2px 1px #26313555)}.tower-floor+.tower-floor{margin-bottom:-5px}.tower-floor svg{width:100%;height:auto;overflow:hidden}.tower-outcome{position:absolute;left:0;right:0;bottom:0;min-height:44px;display:flex;justify-content:center;align-items:center;gap:10px;padding:8px 14px;background:linear-gradient(#264357e8,#172f44);border-top:2px solid #78a7c55c;font-size:12px;color:#d9e9f4;text-shadow:0 2px 2px #122333}.tower-outcome.has-result{justify-content:flex-start;left:15px;right:auto;bottom:62px;min-width:90px;border:1px solid #89c6e06b;border-radius:10px;background:#17384ee8;padding:10px}.tower-outcome b{font-size:32px;line-height:1;color:#ffe289}.tower-outcome>span{font-size:10px}.tower-stop{display:block;margin-top:3px;font-size:8px;color:#9fc5d9}.game-tower .result-line,.game-tower .game-settings legend{color:#c1d4e2}.game-tower .option-group button{background:#132a3e;color:#9fb8ca;box-shadow:inset 0 2px 5px #07172280;border:1px solid #50708a55;border-radius:7px}.game-tower .option-group button[aria-pressed=true]{background:linear-gradient(#57778e,#2f5068);border-color:#94b4c8;color:white}.game-tower .generate-button{color:#583a08;text-shadow:0 1px #ffeaa0;border:1px solid #f3d768;background:#edb820 url('/games/tower-rush/build-button.webp') center/100% 100%;border-radius:5px;box-shadow:0 4px 0 #9c701b,0 5px 10px #091f33;font-size:16px;padding-inline:28px}.game-tower .generate-button:disabled{color:#624e21}.button-bolt{position:absolute;width:13px;height:13px;top:calc(50% - 6px)}.bolt-left{left:10px}.bolt-right{right:10px}.game-tower .simulation-note{color:#98b2c7}.tower-scene.scene-preview{height:100%;min-height:0}.scene-preview .tower-city{bottom:-90px}.scene-preview .tower-assembly{bottom:12px}.scene-preview .tower-floor{animation:none}.scene-preview .tower-crane{left:62%}.scene-preview .tower-sun{top:-20px}.scene-preview .cloud-one{top:50px}.scene-preview .cloud-two{top:170px}.history-shell{max-width:720px}.history-list{display:flex;flex-direction:column;gap:10px}.history-row{display:flex;align-items:center;gap:12px;padding:16px;border:1px solid var(--line);border-radius:16px;background:#15203880}.history-art{height:46px;width:46px;flex-shrink:0;display:grid;place-items:center;background:#263554;border-radius:11px}.history-art img{width:30px;height:30px;object-fit:contain}.history-tower{background:#31485b}.history-tower img{width:43px}.history-name{display:flex;flex-direction:column;gap:6px;min-width:0}.history-name b{font-size:13px}.history-name time{font-size:10px;color:#8f9fbd}.history-value{margin-left:auto;display:flex;flex-direction:column;gap:6px;text-align:right}.history-value b{font-size:13px;color:#bdd7f7}.history-value span{font-size:9px;color:#8f9fbd}.empty-history{text-align:center;padding:40px 22px;border:1px solid var(--line);border-radius:20px;color:#99a9c8;font-size:13px;line-height:1.7}.empty-history h2{font-size:19px;color:#dce5f6;font-weight:700;margin-bottom:9px}.empty-history a{display:inline-block;margin-top:20px;color:#b4d7ff;padding:10px 18px;background:#243858;border-radius:10px}
-@keyframes crystal-reveal{0%{transform:scale(0);opacity:0}43%{transform:scale(1);opacity:1}71%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}@keyframes tile-open{to{opacity:.16;transform:scale(.9)}}@keyframes floor-land{0%{transform:translateY(-65px) rotate(-6deg);opacity:0}65%{transform:translateY(2px) rotate(1deg);opacity:1}100%{transform:none;opacity:1}}@keyframes crane-sway{from{transform:rotate(-5deg)}to{transform:rotate(5deg)}}@keyframes cloud-drift{from{transform:translateX(-12px)}to{transform:translateX(15px)}}@keyframes spin{to{transform:rotate(360deg)}}
-@media(max-width:760px){.app-header{padding-inline:16px}.header-inner{min-height:64px}.catalog-shell,.history-shell{padding:28px 18px}.catalog-heading{margin-bottom:22px}.catalog-heading h1{font-size:28px}.games-grid{gap:14px}.card-art{height:240px}.card-content{padding:17px 15px}.card-content h2{font-size:22px}.card-content p{font-size:10px}.card-category{font-size:8px;letter-spacing:.7px}.card-arrow{width:34px;height:34px;font-size:19px}.mines-scene.scene-preview{padding-inline:28px}.upcoming-list{grid-template-columns:1fr 1fr}.play-shell{max-width:490px;padding:18px 14px}.signal-game{display:block;border-radius:20px}.game-controls{padding:21px}.mines-scene{min-height:0;padding:69px 33px 43px}.mines-board{max-width:366px}.mine-counters{gap:18px}.result-line{padding-bottom:15px;min-height:30px;font-size:11px}.game-settings{margin-bottom:17px}.game-settings legend{font-size:11px}.simulation-note{margin-top:17px}.tower-scene{min-height:445px}.tower-city{bottom:-80px}.game-tower .game-controls{border-top:2px solid #3f6076}.tower-logo{width:132px;height:44px}.tower-demo{top:28px;font-size:7px}.tower-outcome.has-result{bottom:55px;left:10px;padding:8px;min-width:80px}.tower-outcome b{font-size:28px}.tower-outcome>span{font-size:9px}}
-@media(max-width:480px){.games-grid{grid-template-columns:1fr}.card-art{height:240px}.card-content{padding:18px 20px}.card-content h2{font-size:25px}.card-content p{font-size:11px}.card-category{font-size:9px;letter-spacing:1px}.card-arrow{width:40px;height:40px}.mines-scene.scene-preview{padding:18px 65px}.scene-preview .mines-board{max-width:212px}.scene-preview .tower-assembly{--floor-width:54px!important;bottom:10px}.scene-preview .tower-city{bottom:-106px}.upcoming-section{margin-top:28px}.upcoming-game{font-size:10px;padding:12px}.catalog-note{font-size:10px}.catalog-heading p{font-size:12px}.demo-pill{font-size:10px}.header-brand{gap:7px}.brand-link{font-size:13px;gap:9px;letter-spacing:1.6px}.history-link{padding-inline:9px;font-size:11px}.play-shell{padding:12px 10px}.mines-board{gap:6px;padding:11px;border-radius:21px}.mines-scene{padding:63px 24px 37px}.mines-scene-top{top:22px;left:23px;right:23px}.mines-wordmark{font-size:22px}.mine-torch{opacity:.8}.torch-left{left:-6px;width:36px}.torch-right{right:-9px;width:45px}.mine-counters{margin-top:15px;font-size:10px;gap:16px}.game-controls{padding:18px}.tower-scene{min-height:430px}.tower-city{bottom:-55px}.tower-demo{right:12px}.tower-logo{left:12px;width:125px}.history-shell .catalog-heading h1{font-size:27px}}
-@media(max-width:350px){.catalog-heading h1{font-size:24px}.catalog-shell{padding-inline:13px}.catalog-heading p{font-size:11px}.brand-link{letter-spacing:1px}.history-link svg{display:none}.play-shell{padding:8px}.game-controls{padding:15px}.option-group{gap:5px}.option-group button{font-size:11px}.option-group button img{width:17px;height:17px}.mines-scene{padding-inline:20px}.mines-board{gap:5px;padding:10px}.mine-counters{gap:12px}.tower-demo{font-size:6px;letter-spacing:.4px}.generate-button{font-size:12px}.game-tower .generate-button{font-size:14px}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-delay:0ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.scene-preview .mines-board{transform:none}}
-/* Keep preview compositing bounded on mobile browsers. */
-.game-card,.card-art{isolation:isolate}
-.tower-scene svg{overflow:hidden}
-.scene-preview .mines-board{transform:none;box-shadow:none}
-.scene-preview .mine-crystal,.scene-preview .tower-floor{filter:none}
-.scene-preview .mine-torch{display:none}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --ink: #f8f8ff;
+  --muted: #a8b8ed;
+  --line: #293763;
+  --violet: #7736ff;
+}
+* { box-sizing: border-box; }
+html, body { min-height: 100%; background: #05091f; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+  background: #05091f url('/design/neon/background.webp') center bottom / cover fixed no-repeat;
+}
+a { color: inherit; text-decoration: none; }
+button { border: 0; font: inherit; cursor: pointer; }
+button, a { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+button:disabled { cursor: wait; }
+button:focus-visible, a:focus-visible { outline: 3px solid #75e1ff; outline-offset: 4px; }
+img, svg { display: block; }
+.site-page { min-height: 100svh; padding: 22px 0; }
+.app-frame {
+  container-type: inline-size;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: min(calc(100% - 20px), 490px);
+  min-height: 940px;
+  margin: 0 auto;
+  overflow: clip;
+  border: 2px solid #6040ff;
+  border-radius: 30px;
+  background: radial-gradient(ellipse at 48% 30%, #15265775, transparent 70%), #080e27;
+  box-shadow: inset 0 0 14px #7548ff20, 0 0 4px #9370ff88, 0 0 34px #4423dd30;
+}
+.app-header {
+  flex-shrink: 0;
+  background: linear-gradient(120deg, #091129, #070b20);
+  border-bottom: 1px solid #34427166;
+  padding-top: env(safe-area-inset-top, 0px);
+}
+.header-inner {
+  min-height: clamp(54px, 14cqw, 68px);
+  padding: 0 clamp(16px, 6cqw, 30px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.header-brand, .brand-link { display: flex; align-items: center; }
+.header-brand { gap: clamp(12px, 4.5cqw, 22px); }
+.header-brand:has(.back-button) { margin-left: -12px; }
+.brand-link { gap: clamp(9px, 3.3cqw, 16px); white-space: nowrap; font-size: clamp(11px, 3cqw, 15px); font-weight: 800; letter-spacing: 1.5px; }
+.brand-mark { height: clamp(24px, 7cqw, 34px); display: flex; align-items: center; gap: 4px; }
+.brand-mark i { width: 5px; height: 65%; border-radius: 4px; background: linear-gradient(#bed8ff, #689efd); box-shadow: inset 1px 0 #e2efff88; }
+.brand-mark i:nth-child(2) { height: 100%; }
+.brand-mark i:nth-child(3) { height: 78%; }
+.back-button { display: grid; place-items: center; width: clamp(34px, 9cqw, 44px); height: 44px; border: 1px solid #2f3b67; border-radius: 11px; background: #11173155; }
+.back-button svg { width: 22px; height: 22px; }
+.demo-pill { display: flex; align-items: center; justify-content: center; gap: 9px; min-width: clamp(72px, 20cqw, 96px); min-height: clamp(34px, 8.5cqw, 41px); border: 1px solid #253660; border-radius: 12px; color: #c4d2fc; font-size: clamp(10px, 2.6cqw, 13px); background: linear-gradient(135deg, #101a39, #0d142d); box-shadow: inset 0 1px #8191c411; }
+.demo-pill > span { width: 10px; height: 10px; border-radius: 50%; background: #18bafa; box-shadow: 0 0 12px #1686ff40; }
+.catalog-shell { padding: 0 clamp(12px, 3.3cqw, 16px) clamp(12px, 3.3cqw, 16px); }
+.catalog-heading { padding: clamp(10px, 2.4cqw, 12px) clamp(8px, 2.4cqw, 12px) clamp(10px, 2.5cqw, 12px); }
+.catalog-heading h1 { margin: 0 0 6px; font-size: clamp(27px, 8.2cqw, 40px); line-height: 1.12; letter-spacing: -1.2px; font-weight: 900; }
+.catalog-heading p { margin: 0; font-size: clamp(11px, 3.5cqw, 17px); line-height: 1.4; color: #a9c0f3; }
+.games-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(10px, 2.8cqw, 14px); }
+.game-card {
+  position: relative;
+  isolation: isolate;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 454 / 272;
+  border: 1.5px solid #7a72ce;
+  border-radius: clamp(16px, 4.8cqw, 24px);
+  background: #101a37;
+  box-shadow: inset 0 0 3px #d7c6ff80, 0 3px 16px #632cff15;
+}
+.card-mines { border-color: #409bff; box-shadow: -1px 1px 5px #13c8ff99, 1px 1px 5px #8634ff80; }
+.card-art { position: absolute; inset: 0; overflow: hidden; }
+.card-content { position: absolute; z-index: 4; left: 0; right: 0; bottom: 0; display: flex; justify-content: space-between; align-items: center; gap: 6px; padding: 10% clamp(12px, 3.3cqw, 16px) clamp(11px, 3cqw, 15px); background: linear-gradient(transparent, #12123070 63%, #131233d9); pointer-events: none; }
+.card-content h2 { margin: 0 0 4px; text-transform: uppercase; font-size: clamp(21px, 6.9cqw, 34px); font-weight: 900; line-height: 1.06; letter-spacing: -.6px; text-shadow: 0 2px 6px #080c2480; }
+.card-tower-rush .card-content h2 { font-size: clamp(19px, 5.8cqw, 28px); white-space: nowrap; }
+.card-content p { margin: 0; font-size: clamp(9px, 3.1cqw, 15px); color: #c5d5ff; line-height: 1.25; white-space: nowrap; }
+.card-open, .generate-button {
+  color: #fff;
+  border: 1.5px solid #c9b3ff;
+  background: linear-gradient(100deg, #665eff, #681dff 48%, #ae38f7);
+  box-shadow: inset 0 3px 9px #ebd9ff6b, inset 0 -3px 6px #7622dd66, 0 0 15px #7c2aff77;
+  font-weight: 800;
+}
+.card-open { display: flex; justify-content: center; align-items: center; flex-shrink: 0; gap: 8px; min-width: clamp(98px, 29cqw, 142px); min-height: clamp(42px, 10cqw, 50px); padding: 9px 12px; font-size: clamp(11px, 3.1cqw, 15px); border-radius: clamp(13px, 3.7cqw, 18px); }
+.card-open svg { width: 20px; height: 20px; }
+.game-card:hover .card-open { background: linear-gradient(100deg, #8075ff, #792dff 48%, #bb54ff); }
+.upcoming-section { margin-top: clamp(11px, 3.1cqw, 15px); }
+.upcoming-game { position: relative; isolation: isolate; overflow: hidden; min-height: clamp(81px, 21.2cqw, 104px); display: flex; align-items: center; gap: 12px; padding-right: 20px; border: 1.5px solid #344876; border-radius: clamp(15px, 4.5cqw, 22px); background: linear-gradient(110deg, #17213a75, #101b33b0 70%, #0d142dd9), url('/design/neon/cave.webp') center / cover; box-shadow: inset 0 1px 1px #97b7fc20; }
+.upcoming-art { flex: 0 0 24%; width: 24%; align-self: stretch; min-height: 100%; overflow: hidden; mask-image: linear-gradient(to right, #000 78%, transparent); }
+.upcoming-title { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.upcoming-title b { font-size: clamp(12px, 4cqw, 19px); white-space: nowrap; font-weight: 800; }
+.upcoming-title > span { font-size: clamp(10px, 3.1cqw, 15px); color: #9cb5eb; }
+.soon-pill { margin-left: auto; flex-shrink: 0; border: 1px solid #3c5284; border-radius: 30px; padding: 10px 16px; font-size: clamp(10px, 3.1cqw, 15px); color: #b3c7f6; background: linear-gradient(#25375f, #1b2b4c); }
+.bottom-nav { position: relative; z-index: 20; display: flex; flex-shrink: 0; margin-top: auto; min-height: clamp(66px, 16.4cqw, 80px); padding-bottom: env(safe-area-inset-bottom, 0px); border-top: 1px solid #2a3c6566; border-radius: 25px 25px 0 0; background: linear-gradient(#0b1832f8, #070b24fc); box-shadow: 0 -6px 20px #060a1c33; }
+.bottom-nav a { position: relative; width: 50%; display: flex; align-items: center; justify-content: center; gap: clamp(12px, 3.3cqw, 16px); min-height: 64px; color: #9ab4ef; font-size: clamp(12px, 3.3cqw, 16px); }
+.bottom-nav a + a::before { position: absolute; content: ''; left: 0; top: 28%; bottom: 24%; width: 1px; background: #233a6566; }
+.bottom-nav svg { width: 27px; height: 27px; flex-shrink: 0; }
+.bottom-nav a[aria-current] { color: #f9f4ff; font-weight: 700; }
+.bottom-nav a[aria-current] svg { color: #d2a7ff; filter: drop-shadow(0 0 4px #9149ff99); }
+.bottom-nav a[aria-current]::after { content: ''; position: absolute; bottom: 9px; width: 75%; height: 3px; border-radius: 50%; background: radial-gradient(ellipse, #fff 0, #cb81ff 22%, #6b2dff 44%, transparent 73%); box-shadow: 0 -3px 15px #a258ff35; }
+.play-shell { width: 100%; }
+.signal-game { width: 100%; }
+.game-stage { position: relative; min-width: 0; }
+.game-controls { padding: 0 clamp(17px, 5.1cqw, 25px) clamp(10px, 3.3cqw, 16px); }
+.result-line { display: flex; align-items: center; gap: 10px; min-height: clamp(38px, 9.4cqw, 46px); padding: 10px 14px; margin-bottom: clamp(18px, 4.5cqw, 22px); border: 1px solid #2d3a70; border-radius: 10px; background: linear-gradient(110deg, #111b3b, #0d1530); color: #ebefff; font-size: clamp(11px, 3.1cqw, 15px); box-shadow: inset 0 1px #858ee510; }
+.status-dot { height: 10px; width: 10px; flex-shrink: 0; border-radius: 50%; background: #61799e; }
+.status-dot.ready { background: #20f4a9; box-shadow: 0 0 12px #10f4b844; }
+.game-settings { min-width: 0; margin: 0 0 clamp(22px, 6.1cqw, 30px); padding: 0; border: 0; }
+.game-settings legend { margin-bottom: 10px; color: #adc6fb; font-size: clamp(12px, 3.3cqw, 16px); font-weight: 600; }
+.option-group { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(6px, 1.6cqw, 8px); }
+.four-options { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.option-group button { display: flex; justify-content: center; align-items: center; gap: 8px; min-height: clamp(44px, 11cqw, 54px); border-radius: 11px; border: 1px solid #2b3c71; background: linear-gradient(120deg, #151e3b, #0d1630); box-shadow: inset 0 2px 5px #ffffff05; color: #c0d2ff; font-size: clamp(13px, 3.5cqw, 17px); }
+.option-group button img { height: 19px; width: 19px; object-fit: contain; }
+.option-group button[aria-pressed=true] { border: 1.5px solid #d6c1ff; color: #fff; background: linear-gradient(140deg, #7469ff, #6330ff 65%, #7f4afd); box-shadow: inset 0 2px 7px #f0eaff66, 0 0 12px #6c31ff55; font-weight: 800; }
+.generate-button { position: relative; width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; min-height: clamp(55px, 14cqw, 69px); padding: 13px 36px; border-radius: 17px; font-size: clamp(16px, 4.5cqw, 22px); line-height: 1.3; text-shadow: 0 1px 2px #6939d5; }
+.generate-arrow { position: absolute; right: 23px; width: 23px; height: 23px; }
+.generate-button:hover:not(:disabled) { background: linear-gradient(100deg, #8178ff, #802fff 48%, #bd54ff); }
+.generate-button:active:not(:disabled) { transform: translateY(1px); }
+.generate-button:disabled { color: #ece1ff; background: linear-gradient(100deg, #5247b7, #5623bc 48%, #792dab); box-shadow: inset 0 2px 5px #cfb8ff44, 0 0 12px #6d2ae833; font-size: clamp(12px, 3.7cqw, 18px); }
+.simulation-note { text-align: center; color: #9db8ee; font-size: clamp(9px, 2.55cqw, 12px); line-height: 1.55; margin: 14px -8px 0; }
+.signal-error { margin: 0 0 16px; border-radius: 10px; padding: 12px; border: 1px solid #fd77794d; background: #e9526215; color: #ffaeb8; font-size: 12px; }
+.scene-loading { position: absolute; inset: 0; z-index: 10; display: flex; align-items: center; justify-content: center; gap: 12px; background: #0b142380; backdrop-filter: blur(3px); font-size: 13px; font-weight: 600; }
+.loading-spinner { width: 22px; height: 22px; border: 2px solid #fff3; border-top-color: #b77aff; border-radius: 50%; animation: spin .7s linear infinite; }
+
+/* Live Mines field uses the original HAR vectors inside the approved cave art. */
+.mines-scene { position: relative; overflow: hidden; padding: clamp(57px, 14.5cqw, 71px) clamp(25px, 7.3cqw, 36px) clamp(24px, 6.1cqw, 30px); background: url('/design/neon/cave.webp') center / 100% 100% no-repeat; }
+.mines-scene-top { position: absolute; left: clamp(20px, 5.1cqw, 25px); top: clamp(12px, 3.3cqw, 16px); }
+.mines-wordmark { font-size: clamp(27px, 7.7cqw, 37px); line-height: 1.2; font-weight: 900; letter-spacing: .5px; }
+.mines-board { position: relative; width: 100%; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(7px, 2.3cqw, 11px); padding: clamp(14px, 4cqw, 20px) clamp(19px, 5.7cqw, 28px); border-radius: 26px; background: #030b1bf0; box-shadow: inset 0 0 18px #01081e, 0 0 12px #195fcc3d; }
+.mine-cell { position: relative; aspect-ratio: 1; min-width: 0; }
+.mine-tile { display: none; }
+.mine-cell::before { content: ''; position: absolute; inset: 1%; border-radius: 16%; border: 1px solid #24b5cd; background: radial-gradient(ellipse at 14% 0, #5affed99, transparent 60%), linear-gradient(115deg, #0b9bb7, #08778f 65%, #076981); box-shadow: inset 0 2px 3px #88fff8b3, inset 2px 0 5px #1ae5ef66, inset -2px -2px 4px #004f7899, 0 0 2px #1dbff170; }
+.mine-cell.revealed::before { border-color: #192d52; background: linear-gradient(135deg, #132347, #081a35); box-shadow: inset 0 1px 3px #506d903f; }
+.mine-crystal { position: absolute; inset: 3%; height: 94%; width: 94%; object-fit: contain; animation: crystal-reveal .7s var(--reveal-delay) both; }
+.revealed .mine-tile { animation: tile-open .35s var(--reveal-delay) both; }
+.mine-torch, .mine-counters { display: none; }
+.mines-scene.scene-preview { position: absolute; inset: 0; padding: 0; background-size: 100% 100%; }
+.scene-preview .mines-board { position: absolute; width: 49%; right: 19.5%; top: 5%; padding: 0; border-radius: 8px; gap: 5px; background: #030e2180; box-shadow: none; }
+.scene-preview .mine-crystal, .scene-preview .mine-tile { animation: none; }
+.scene-preview .revealed .mine-tile { opacity: .13; }
+
+/* The Tower Rush game still uses its original sprites and city scene. */
+.tower-scene { position: relative; isolation: isolate; min-height: 485px; overflow: hidden; background: #a2c1d5 url('/games/tower-rush/background-back.webp') center bottom / 100% auto no-repeat; }
+.tower-scene svg { overflow: hidden; }
+.tower-city { position: absolute; bottom: -65px; width: 100%; max-width: none; z-index: -1; }
+.tower-logo { position: absolute; left: 18px; top: 18px; width: 150px; height: 50px; object-fit: contain; }
+.tower-demo { display: none; }
+.tower-sun { position: absolute; width: 190px; height: 190px; top: 35px; right: -55px; opacity: .75; z-index: -1; }
+.tower-cloud { position: absolute; width: 200px; opacity: .8; z-index: -1; animation: cloud-drift 12s ease-in-out infinite alternate; }
+.cloud-one { left: -50px; top: 130px; }
+.cloud-two { right: -60px; top: 240px; width: 260px; animation-delay: -5s; }
+.tower-crane { position: absolute; top: 0; left: 52%; width: 15px; transform-origin: top; animation: crane-sway 4s ease-in-out infinite alternate; }
+.tower-cable { width: 3px; height: 76px; margin: 0 auto; background: repeating-linear-gradient(90deg,#2b3844 0 1px,#9a9c91 1px 2px); }
+.tower-crane svg { width: 15px; height: 32px; }
+.tower-assembly { position: absolute; bottom: 52px; left: 50%; width: var(--floor-width); transform: translateX(-50%); height: calc(var(--floor-width)*1.59); }
+.tower-base { position: absolute; bottom: 0; width: 260%; max-width: none; left: -80%; }
+.tower-floors { position: absolute; left: 0; bottom: calc(var(--floor-width)*1.36); width: 100%; display: flex; flex-direction: column-reverse; align-items: center; }
+.tower-floor { width: 100%; flex-shrink: 0; position: relative; animation: floor-land .55s var(--reveal-delay) both; }
+.tower-floor + .tower-floor { margin-bottom: -5px; }
+.tower-floor svg { width: 100%; height: auto; }
+.tower-outcome { position: absolute; left: 0; right: 0; bottom: 0; min-height: 44px; display: flex; justify-content: center; align-items: center; gap: 10px; padding: 8px 14px; background: linear-gradient(#17263de8,#0d1633); border-top: 1px solid #7c73c95c; font-size: 12px; color: #d9e9f4; }
+.tower-outcome.has-result { justify-content: flex-start; left: 15px; right: auto; bottom: 62px; min-width: 90px; border: 1px solid #89c6e06b; border-radius: 10px; background: #17304be8; padding: 10px; }
+.tower-outcome b { font-size: 32px; line-height: 1; color: #ffe289; }
+.tower-outcome > span { font-size: 10px; }
+.tower-stop { display: block; margin-top: 3px; font-size: 8px; color: #9fc5d9; }
+.game-tower .game-controls { padding-top: 16px; }
+.tower-scene.scene-preview { position: absolute; inset: 0; height: 100%; min-height: 0; }
+.scene-preview .tower-city { bottom: -39%; }
+.scene-preview .tower-sun { right: 0; width: 42%; height: auto; }
+.scene-preview .tower-assembly { --floor-width: 11.3cqw !important; bottom: 10%; }
+.scene-preview .tower-floor { animation: none; }
+.scene-preview .tower-crane { left: 61%; }
+.scene-preview .tower-cable { height: 76px; }
+.scene-preview .tower-sun { top: -20px; }
+.scene-preview .cloud-one { top: 50px; }
+.scene-preview .cloud-two { top: 170px; }
+.history-shell { padding: 10px 18px 24px; }
+.history-shell .catalog-heading { padding-inline: 4px; margin-bottom: 8px; }
+.history-shell .catalog-heading h1 { font-size: clamp(25px, 6.7cqw, 33px); }
+.history-shell .catalog-heading p { font-size: clamp(11px, 3.1cqw, 15px); }
+.history-list { display: flex; flex-direction: column; gap: 10px; }
+.history-row { display: flex; align-items: center; gap: 12px; padding: 16px 12px; border: 1px solid #384275; border-radius: 16px; background: linear-gradient(120deg,#15213dd9,#13162d); }
+.history-art { height: 46px; width: 46px; flex-shrink: 0; display: grid; place-items: center; border: 1px solid #514c8b; background: #1b244c; border-radius: 11px; }
+.history-art img { width: 30px; height: 30px; object-fit: contain; }
+.history-tower img { width: 43px; }
+.history-name { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.history-name b { font-size: 13px; }
+.history-name time { font-size: 10px; color: #9fb1dc; }
+.history-value { margin-left: auto; display: flex; flex-direction: column; gap: 6px; text-align: right; }
+.history-value b { font-size: 13px; color: #d7b7ff; }
+.history-value span { font-size: 9px; color: #9fb1dc; }
+.empty-history { text-align: center; padding: 40px 22px; border: 1px solid #394576; border-radius: 20px; background: #131b3966; color: #a8bae3; font-size: 13px; line-height: 1.7; }
+.empty-history h2 { font-size: 19px; color: #f1edff; font-weight: 700; margin-bottom: 9px; }
+.empty-history a { display: inline-block; margin-top: 20px; color: #f4e8ff; padding: 10px 18px; background: linear-gradient(110deg,#5843d5,#8133db); border: 1px solid #a880ee; border-radius: 10px; }
+
+@keyframes crystal-reveal { 0% { transform: scale(0); opacity: 0; } 43% { transform: scale(1); opacity: 1; } 71% { transform: scale(1.15); } 100% { transform: scale(1); opacity: 1; } }
+@keyframes tile-open { to { opacity: .13; transform: scale(.96); } }
+@keyframes floor-land { 0% { transform: translateY(-65px) rotate(-6deg); opacity: 0; } 65% { transform: translateY(2px) rotate(1deg); opacity: 1; } 100% { transform: none; opacity: 1; } }
+@keyframes crane-sway { from { transform: rotate(-5deg); } to { transform: rotate(5deg); } }
+@keyframes cloud-drift { from { transform: translateX(-12px); } to { transform: translateX(15px); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (max-width: 540px) {
+  .site-page { padding: 8px 0; }
+  .app-frame { width: calc(100% - 16px); min-height: 0; max-width: 490px; border-radius: 25px; }
+  .brand-mark { gap: 3px; }
+  .brand-mark i { width: 4px; }
+  .catalog-shell { flex: 0; }
+  .tower-scene { min-height: 430px; }
+  .tower-city { bottom: -55px; }
+  .generate-arrow { right: 15px; width: 20px; }
+  .upcoming-game { gap: 10px; padding-right: 14px; }
+  .soon-pill { padding: 9px 12px; }
+  .bottom-nav { border-radius: 20px 20px 0 0; }
+}
+@media (max-width: 350px) {
+  .header-inner { padding-inline: 15px; }
+  .header-brand { gap: 10px; }
+  .header-brand:has(.back-button) { margin-left: -5px; }
+  .brand-link { letter-spacing: .5px; gap: 8px; }
+  .demo-pill { min-width: 63px; gap: 6px; }
+  .catalog-heading h1 { font-size: 26px; }
+  .card-content { padding-inline: 10px; }
+  .card-content h2 { font-size: 23px; }
+  .card-tower-rush .card-content h2 { font-size: 19px; }
+  .card-content p { font-size: 9px; }
+  .card-open { min-width: 88px; padding-inline: 9px; gap: 5px; font-size: 10px; }
+  .card-open svg { width: 15px; }
+  .upcoming-game { gap: 6px; padding-right: 9px; }
+  .upcoming-title b { font-size: 12px; }
+  .soon-pill { padding: 8px 10px; }
+  .history-row { gap: 8px; padding-inline: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}

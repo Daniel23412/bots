@@ -21,7 +21,7 @@ export function MinesScene({ signal, mines = 3, loading = false, preview = false
   const data = signal?.data as MinesData | undefined;
   const cells = data?.recommendedCells ?? (preview ? [2, 6, 12, 18, 21] : []);
   return <div className={`mines-scene ${preview ? "scene-preview" : ""} ${loading ? "is-analyzing" : ""}`}>
-    {!preview && <div className="mines-scene-top"><span className="mines-wordmark">MINES</span><span className="scene-label">СИМУЛЯЦИЯ</span></div>}
+    {!preview && <div className="mines-scene-top"><span className="mines-wordmark">MINES</span></div>}
     <img className="mine-torch torch-left" src="/games/mines/torch-left.svg" alt="" />
     <img className="mine-torch torch-right" src="/games/mines/torch-right.svg" alt="" />
     <div className="mines-board" role="img" aria-label={cells.length ? `Поле Mines. Отмечены клетки: ${cells.map(c => c + 1).join(", ")}` : "Поле Mines: 25 закрытых клеток"}>
@@ -39,7 +39,7 @@ export function MinesScene({ signal, mines = 3, loading = false, preview = false
 
 export function TowerScene({ signal, loading = false, preview = false }: { signal?: GameSignal | null; loading?: boolean; preview?: boolean }) {
   const count = signal ? (signal.data as TowerData).stopAfter : preview ? 3 : 0;
-  const width = preview ? 62 : count > 5 ? 40 : count > 3 ? 53 : 76;
+  const width = preview ? 55 : count > 5 ? 40 : count > 3 ? 53 : 76;
   return <div className={`tower-scene ${preview ? "scene-preview" : ""} ${loading ? "is-analyzing" : ""}`} role="img" aria-label={count ? `Tower Rush: ${count} этажей. Остановка после ${count} этажа.` : "Tower Rush: площадка для строительства башни"}>
     <TowerSprite name="sun" className="tower-sun" />
     <TowerSprite name="cloud" className="tower-cloud cloud-one" />
@@ -51,7 +51,7 @@ export function TowerScene({ signal, loading = false, preview = false }: { signa
     <div key={signal?.id ?? "idle"} className="tower-assembly" style={{ "--floor-width": `${width}px` } as CSSProperties}>
       <img className="tower-base" src="/games/tower-rush/base.webp" alt="" />
       <div className="tower-floors">
-        {Array.from({ length: count }, (_, i) => <div className="tower-floor" key={i} data-floor={i + 1} style={{ "--reveal-delay": `${i * 220}ms` } as CSSProperties}><TowerSprite name={`tower-${(i % 5) + 1}` as keyof typeof frames} /></div>)}
+        {Array.from({ length: count }, (_, i) => <div className="tower-floor" key={i} data-floor={i + 1} style={{ "--reveal-delay": `${i * 220}ms` } as CSSProperties}><TowerSprite name={(preview ? ["tower-1", "tower-2", "tower-3"][i] : `tower-${(i % 5) + 1}`) as keyof typeof frames} /></div>)}
       </div>
     </div>
     {!preview && <div className={`tower-outcome ${count ? "has-result" : ""}`} aria-hidden="true">{count ? <><b>{count}</b><span>этажей<span className="tower-stop">Остановка здесь</span></span></> : <span>Башня готова к старту</span>}</div>}
