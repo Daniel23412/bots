@@ -2,6 +2,6 @@ import { publicGames } from "@/lib/signals/registry";
 import { GameCard } from "./GameCard";
 
 export function GameGrid() {
-  const list = publicGames();
-  return <div className="grid grid-cols-2 gap-3">{list.map((game) => <GameCard key={game.id} game={game} />)}</div>;
+  const games = publicGames();
+  return <><div className="games-grid">{games.filter(game => game.enabled).map(game => <GameCard key={game.id} game={game} />)}</div><div className="upcoming-section"><h2>Следующие игры</h2><div className="upcoming-list">{games.filter(game => !game.enabled).map(game => <GameCard key={game.id} game={game} />)}</div></div></>;
 }
