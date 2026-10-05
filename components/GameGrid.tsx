@@ -3,6 +3,7 @@ import { GameCard } from "./GameCard";
 
 export function GameGrid() {
   const games = publicGames();
-  const nextGame = games.find(game => !game.enabled);
-  return <><div className="games-grid">{games.filter(game => game.enabled).map(game => <GameCard key={game.id} game={game} />)}</div>{nextGame && <div className="upcoming-section"><GameCard game={nextGame} /></div>}</>;
+  // Keep the compact Pickaxe row from the approved Neon composition.
+  const pickaxe = games.find(game => game.id === "falling-pickaxe");
+  return <><div className="games-grid">{games.filter(game => game.enabled && game.id !== "falling-pickaxe").map(game => <GameCard key={game.id} game={game} />)}</div>{pickaxe && <div className="upcoming-section"><GameCard game={pickaxe} /></div>}</>;
 }

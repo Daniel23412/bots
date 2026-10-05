@@ -4,14 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowIcon } from "./AppShell";
 import { SignalResult } from "./SignalResult";
 import type { GameSignal } from "@/lib/signals/types";
-
-const HISTORY_KEY = "ai-signal-history-v1";
-function saveHistory(signal: GameSignal) {
-  try {
-    const current: unknown = JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]");
-    localStorage.setItem(HISTORY_KEY, JSON.stringify([signal, ...(Array.isArray(current) ? current : [])].slice(0, 50)));
-  } catch { /* The result remains available when local storage is disabled. */ }
-}
+import { saveSignalHistory } from "@/lib/signals/history";
 
 export function SignalClient({ game }: { game: string }) {
   const [mines, setMines] = useState(3);
@@ -45,7 +38,7 @@ export function SignalClient({ game }: { game: string }) {
       const json = await response.json() as { success?: boolean; error?: string; signal?: GameSignal };
       if (!response.ok || !json.success || !json.signal) throw new Error("Не удалось создать сигнал. Попробуйте ещё раз.");
       if (request.signal.aborted) return;
-      setSignal(json.signal); saveHistory(json.signal); setCooldown(5);
+      setSignal(json.signal); saveSignalHistory(json.signal); setCooldown(5);
     } catch (e) {
       if (!request.signal.aborted) setError(e instanceof Error ? e.message : "Не удалось создать сигнал.");
     } finally {

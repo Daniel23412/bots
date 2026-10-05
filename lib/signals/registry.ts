@@ -1,6 +1,7 @@
 import type { GameDefinition } from "./types";
 import { MinesEngine } from "@/games/mines/engine";
 import { TowerRushEngine } from "@/games/tower-rush/engine";
+import { FallingPickaxeEngine } from "@/games/falling-pickaxe/engine";
 
 export const games: Record<string, GameDefinition> = {
   mines: {
@@ -23,7 +24,7 @@ export const games: Record<string, GameDefinition> = {
     status: "ready",
     provider: TowerRushEngine,
   },
-  "falling-pickaxe": { id: "falling-pickaxe", title: "Falling Pickaxe", icon: "⛏️", description: "Стратегия кирок, TNT и портала.", category: "ARCADE", enabled: false, status: "next" },
+  "falling-pickaxe": { id: "falling-pickaxe", title: "Falling Pickaxe", icon: "⛏️", description: "Четыре кирки, три режима и стратегия выхода в портал.", category: "ARCADE", enabled: true, status: "ready", provider: FallingPickaxeEngine },
   "wheel-out": { id: "wheel-out", title: "Wheel Out", icon: "🎡", description: "Сектор, диапазон и условная точка выхода.", category: "ARCADE", enabled: false, status: "next" },
   "viper-royale": { id: "viper-royale", title: "Viper Royale", icon: "🐍", description: "Маршрут, камни и направление выхода.", category: "ARCADE", enabled: false, status: "next" },
   aviamasters: { id: "aviamasters", title: "Aviamasters", icon: "✈️", description: "Маршрут, высота и зона выхода.", category: "CRASH", enabled: false, status: "next" },

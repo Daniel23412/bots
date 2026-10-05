@@ -1,0 +1,22 @@
+{
+  "game": "falling-pickaxe",
+  "sourceFiles": ["one-vv846123479.com.har", "one-vv8461234791.com.har"],
+  "httpEntries": [458, 444],
+  "gameRelatedEntries": [107, 105],
+  "decodedRoundMessages": 0,
+  "transport": "socket.io polling handshake; game runtime gateway",
+  "pickaxeHp": {"wood": 100, "stone": 150, "iron": 200, "diamond": 400},
+  "fieldColumns": 10,
+  "originalConfiguredRows": 400,
+  "ores": [
+    {"id": "copper", "hp": 5, "minDepth": 0},
+    {"id": "redstone", "hp": 10, "minDepth": 10},
+    {"id": "gold", "hp": 15, "minDepth": 20},
+    {"id": "diamond", "hp": 20, "minDepth": 30},
+    {"id": "emerald", "hp": 30, "minDepth": 40}
+  ],
+  "craftingTable": "Upgrade one tier and restore durability; restore only at diamond tier",
+  "tnt": "Local explosion",
+  "portal": "Custom panel feature, not part of captured original mechanics",
+  "predictionAvailable": false
+}

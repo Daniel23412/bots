@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
+    "test:pickaxe": "node --import tsx --test tests/falling-pickaxe.test.ts",
     "parse:har": "tsx scripts/parse-har.ts",
     "telegram:set-webhook": "node scripts/set-telegram-webhook.mjs",
     "postinstall": "prisma generate"
