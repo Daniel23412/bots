@@ -5,11 +5,11 @@ export type PickaxeSignalOptions = { pickaxe?: PickaxeKind; mode?: PickaxeMode }
 export type PickaxeSignalData = {
   pickaxe: PickaxeKind;
   mode: PickaxeMode;
-  pickaxeCount: number;
+  attemptCount: number;
   durability: number;
-  exitLevel: number;
+  targetDepth: number;
   priorities: PickaxePriority[];
   upgrade: boolean;
   useTnt: boolean;
-  route: { row: number; column: number; level: number; target: PickaxePriority | "crafting_table" | "portal" }[];
+  route: { row: number; column: number; level: number; target: PickaxePriority | "crafting_table" }[];
 };

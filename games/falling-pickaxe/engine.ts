@@ -14,7 +14,7 @@ export const FallingPickaxeEngine: SignalProvider<PickaxeSignalOptions, PickaxeS
   async generateSignal(rawOptions) {
     const { pickaxe, mode } = optionsSchema.parse(rawOptions);
     const config = PICKAXE_MODES[mode];
-    const exitLevel = pickInt(...config.exitRange);
+    const targetDepth = pickInt(...config.depthRange);
     const useTnt = mode !== "safe";
     const priorities: PickaxeSignalData["priorities"] = mode === "safe" ? ["gold", "diamond"] : mode === "balanced" ? ["diamond", "emerald", "tnt"] : ["emerald", "diamond", "tnt"];
     const firstOre = mode === "safe" ? "gold" : "diamond";
@@ -24,13 +24,13 @@ export const FallingPickaxeEngine: SignalProvider<PickaxeSignalOptions, PickaxeS
       risk: mode === "safe" ? "low" : mode === "balanced" ? "medium" : "high",
       simulation: true,
       data: {
-        pickaxe, mode, exitLevel, pickaxeCount: pickInt(...config.countRange),
+        pickaxe, mode, targetDepth, attemptCount: pickInt(...config.attemptRange),
         durability: PICKAXES[pickaxe].hp, priorities, upgrade: pickaxe !== "diamond", useTnt,
         route: [
           { row: 1, column: pickInt(3, 5), level: 8, target: "crafting_table" },
           { row: 4, column: pickInt(2, 6), level: mode === "safe" ? 20 : 30, target: firstOre },
           { row: 7, column: pickInt(3, 7), level: mode === "safe" ? 30 : 40, target: secondOre },
-          { row: 10, column: 4, level: exitLevel, target: "portal" },
+          { row: 10, column: 4, level: targetDepth, target: secondOre },
         ],
       },
     };

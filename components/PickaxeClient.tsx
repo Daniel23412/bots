@@ -9,6 +9,7 @@ import type { PickaxeKind, PickaxeMode, PickaxeSignalData } from "@/games/fallin
 import type { PickaxeSpriteName } from "@/games/falling-pickaxe/atlas";
 import type { GameSignal } from "@/lib/signals/types";
 import { saveSignalHistory } from "@/lib/signals/history";
+import { formatAttemptCount } from "@/games/falling-pickaxe/format";
 
 export function PickaxeClient() {
   const [pickaxe, setPickaxe] = useState<PickaxeKind>("iron");
@@ -73,7 +74,12 @@ export function PickaxeClient() {
       {loading && <div className="scene-loading" role="status"><span className="loading-spinner" />Собираем план раунда…</div>}
     </div>
     <div className="game-controls">
-      <div className="result-line" role="status" aria-live="polite"><span className={`status-dot ${signal ? "ready" : ""}`} />{loading ? "Создаём симуляцию" : data ? `План готов · кирок: ${data.pickaxeCount} · выход: ${data.exitLevel}` : "Настройте свою стратегию"}</div>
+      <div className="result-line" role="status" aria-live="polite"><span className={`status-dot ${signal ? "ready" : ""}`} />{loading ? "Создаём симуляцию" : data ? `План готов · ${formatAttemptCount(data.attemptCount)} в демо-сценарии` : "Выберите кирку и режим"}</div>
+      {data && <section className="pickaxe-attempt-result" aria-label={`До «заноса»: ${formatAttemptCount(data.attemptCount)} в демо-сценарии`}>
+        <div className="pickaxe-attempt-heading"><span>Попыток до «заноса»</span><span className="pickaxe-demo-label">Демо</span></div>
+        <div className="pickaxe-attempt-number"><strong>{data.attemptCount}</strong><span>в демо-сценарии<br /><small>Новый отсчёт для каждого сигнала</small></span></div>
+        <ol className="pickaxe-attempt-track" aria-label="Попытки демо-сценария">{Array.from({ length: data.attemptCount }, (_, i) => <li key={i} className={i + 1 === data.attemptCount ? "is-target-attempt" : ""} aria-label={`Попытка ${i + 1}${i + 1 === data.attemptCount ? " — цель демо-сценария" : ""}`}><span>{i + 1}</span></li>)}</ol>
+      </section>}
       <fieldset className="game-settings pickaxe-settings" disabled={loading}>
         <legend>Тип кирки</legend>
         <div className="pickaxe-options">{PICKAXE_KINDS.map(kind => <button type="button" key={kind} aria-label={`${PICKAXES[kind].label} кирка`} aria-pressed={pickaxe === kind} onClick={() => { setPickaxe(kind); clearResult(); }}><PickaxeSprite name={PICKAXES[kind].sprite as PickaxeSpriteName} /><span>{PICKAXES[kind].shortLabel}</span><small>{PICKAXES[kind].hp} HP</small></button>)}</div>
@@ -83,6 +89,7 @@ export function PickaxeClient() {
       <button className="generate-button" type="button" onClick={generate} disabled={loading || cooldown > 0}><span>{loading ? "Создаём сигнал…" : cooldown ? `Новый сигнал через ${cooldown} с` : "Получить сигнал"}</span><ArrowIcon className="generate-arrow" /></button>
       {data && <section className="pickaxe-strategy" aria-label="Стратегия раунда" key={signal?.id}>
         <div className="pickaxe-strategy-heading"><h2>Ваш план раунда</h2><span>Демо</span></div>
+        <div className="pickaxe-plan-meta"><span>{PICKAXES[data.pickaxe].label} кирка · {data.durability} HP</span><span>Глубина по плану: <b>{data.targetDepth}</b></span></div>
         <div className="pickaxe-priorities">{data.priorities.map((priority, i) => <div key={priority} data-priority={priority}><b>{i+1}</b><PickaxeSprite name={priority} /><span>{PRIORITY_LABELS[priority]}</span></div>)}</div>
         <div className="pickaxe-actions"><div><PickaxeSprite name="crafting_table" /><span>Верстак<b>{data.upgrade ? "Улучшить кирку" : "Восстановить HP"}</b></span></div><div><PickaxeSprite name="tnt" /><span>TNT<b>{data.useTnt ? "Использовать" : "Пропустить"}</b></span></div></div>
         <p>Схема иллюстрирует стратегию, а не расположение блоков в реальном раунде.</p>

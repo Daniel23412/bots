@@ -25,6 +25,9 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
 
+      - name: Pickaxe regression tests
+        run: npm run test:pickaxe
+
       - name: Lint
         run: npm run lint
 

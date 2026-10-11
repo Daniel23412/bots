@@ -20,7 +20,9 @@ Cached HAR bodies omit the main sprite sheet and background. The matching origin
 
 ## Signal implementation and limitations
 
-The new module is an independent strategy simulation for the user's portal variant. Pickaxe count, risk modes, target exit level and a schematic route are product-defined demo parameters, not extracted RNG predictions. The original captured game has no portal: the portal is a customization from the existing panel and the Signal Bot specification. The interface explicitly labels the portal variant and simulation.
+The module is an independent strategy simulation. Its main result is `attemptCount`: the number of attempts until the illustrative successful attempt in a demo scenario. The UI calls this «Попыток до заноса» and labels it as a demo. The original game has no portal; the former portal element and exit-level result have been removed. Attempt counts, modes, target depth and the schematic route are product-defined demo parameters, not extracted RNG predictions. Each generated signal starts a fresh illustrative sequence; it does not track or guarantee real game outcomes.
+
+Demo attempt ranges are 3–4 / 4–5 / 5–6 for the low / medium / high modes. These are presentation settings, not measured probabilities. `targetDepth` only describes the round plan; it is not an exit command. The route ends at an ore block. Old local-history records are retained as «Старый план» without converting their former pickaxe count into an attempt count.
 
 Modes produce different illustrative target ranges and mining priorities. Diamond/emerald are only prioritized at depths where the original configuration allows them. The selected pickaxe determines the displayed HP and whether the crafting-table action is upgrade or repair. Every result has a fresh ID and is saved to local history. No real game is contacted and no bets are placed.
 

@@ -11,6 +11,7 @@ Telegram Mini App + web interface for **simulation signals** reconstructed from 
 - Central Game Registry / SignalProvider architecture
 - Mines signal engine (5×5, 1/3/5/7 mines)
 - Tower Rush signal engine (safe/balanced/aggressive)
+- Falling Pickaxe demo attempt count, four pickaxes, three modes and a portal-free round plan
 - animated AI analysis flow
 - 5-second cooldown
 - client signal history
@@ -39,6 +40,7 @@ The parser extracts request URLs, methods, safe headers, query params, payloads,
 ## Typecheck / Build
 ```bash
 npm run typecheck
+npm run test:pickaxe
 npm run build
 ```
 
@@ -85,4 +87,4 @@ Telegram Mini App / Web UI
 Each game is isolated under `games/<slug>/`. To add a game, add its config/parser/engine and register it once in `lib/signals/registry.ts`.
 
 ## Next games
-Falling Pickaxe → Viper Royale → Wheel Out → Aviamasters → Chicken Rush → Tower Dash → Totem Tower.
+Viper Royale → Wheel Out → Aviamasters → Chicken Rush → Tower Dash → Totem Tower.
